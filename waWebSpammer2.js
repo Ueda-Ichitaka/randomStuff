@@ -1,7 +1,25 @@
 var count = 10;
 var delay = Math.floor((Math.random() * 5000) + 2500);
 var spamText = "Spam!";
-var spamTextArr = ["Spam!", "Hallo", "Welt", "Hallo", "hallo", "nerv", "ich?", "nerv ich?", "spam", "spam"];
+var spamTextArr = [	"Spam!", 
+					"Hallo", 
+					"Welt", 
+					"Hallo", 
+					"hallo", 
+					"nerv", 
+					"ich?", 
+					"nerv ich?", 
+					"spam", 
+					"spam",
+					"Hier könnte ihre Werbung stehen",
+					"Bierjunge!",
+					"Was mach ich hier?",
+					"Wer kommt alles mit zu Equilibrium am 14.10. ?",
+					"Cyka blyat",
+					"curva",
+					"Sei R ein kommutativer Ring",
+					"Berechnen Sie alle möglichen Untervektorräume der Unendlichkeit. Schreiben Sie alle einzeln auf!"
+					];
 
 var i = 0;
 
@@ -20,7 +38,9 @@ function loop() {
 }
 
 function fillMessage() {
-	dispatch(document.querySelector("div.input"), "textInput", spamTextArr[Math.floor(Math.random() * 10)]);
+	arrLength = spamTextArr.length;
+	console.log(arrLength);
+	dispatch(document.querySelector("div.input"), "textInput", spamTextArr[Math.floor(Math.random() * arrLength)]);
 }
 
 function dispatch(target, eventType, char) {
