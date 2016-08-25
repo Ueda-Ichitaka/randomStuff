@@ -1,8 +1,9 @@
 var count = 10;
-var delay = Math.floor((Math.random() * 3000) + 200);
+var delay = Math.floor((Math.random() * 5000) + 2500);
 var spamText = "Spam!";
+var spamTextArr = ["Spam!", "Hallo", "Welt", "Hallo", "hallo", "nerv", "ich?", "nerv ich?", "spam", "spam"];
 
-var i = 1;
+var i = 0;
 
 function loop() {
 	setTimeout(function () {
@@ -12,14 +13,14 @@ function loop() {
 		console.log(i);
 		if(i < count) {
 			loop();
-			delay = Math.floor((Math.random() * 2000) + 200);
+			delay = Math.floor((Math.random() * 5000) + 2500);
 		}
 	}, delay);
 	
 }
 
 function fillMessage() {
-	dispatch(document.querySelector("div.input"), "textInput", spamText);
+	dispatch(document.querySelector("div.input"), "textInput", spamTextArr[Math.floor(Math.random() * 10)]);
 }
 
 function dispatch(target, eventType, char) {
