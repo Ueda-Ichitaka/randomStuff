@@ -39,7 +39,6 @@ function loop() {
 
 function fillMessage() {
 	arrLength = spamTextArr.length;
-	console.log(arrLength);
 	dispatch(document.querySelector("div.input"), "textInput", spamTextArr[Math.floor(Math.random() * arrLength)]);
 }
 
