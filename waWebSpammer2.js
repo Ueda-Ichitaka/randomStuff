@@ -1,5 +1,6 @@
 var count = 10;
 var delay = Math.floor((Math.random() * 5000) + 2500);
+var mode = 1;  	//1 array, 0 txt
 var spamText = "Spam!";
 var spamTextArr = [	"Spam!", 
 					"Hallo", 
@@ -13,12 +14,27 @@ var spamTextArr = [	"Spam!",
 					"spam",
 					"Hier könnte ihre Werbung stehen",
 					"Bierjunge!",
-					"Was mach ich hier?",
-					"Wer kommt alles mit zu Equilibrium am 14.10. ?",
 					"Cyka blyat",
-					"curva",
+					"kurwa",
 					"Sei R ein kommutativer Ring",
-					"Berechnen Sie alle möglichen Untervektorräume der Unendlichkeit. Schreiben Sie alle einzeln auf!"
+					"Berechnen Sie alle möglichen Untervektorräume der Unendlichkeit. Schreiben Sie alle einzeln auf!",
+					"Why do dprogramers need glasses?",
+					"Cause they can't C#",
+					"Hey!",
+					"hey!",
+					"Listen!",
+					"^^vv<><>BAStart",
+					"Make me a sandwich! - No. - Sudo make me a sandwich! - Ok!",
+					"Igni",
+					"Aard",
+					"Quen",
+					"Yrden",
+					"Axii",
+					"A d'yaebl aép arse",
+					"Bloede dh'oine",
+					"Va fail Gwynnbleidd",
+					"nuqneH",
+					"Qapla'!"
 					];
 
 var i = 0;
@@ -38,8 +54,13 @@ function loop() {
 }
 
 function fillMessage() {
-	arrLength = spamTextArr.length;
-	dispatch(document.querySelector("div.input"), "textInput", spamTextArr[Math.floor(Math.random() * arrLength)]);
+	if(mode == 0) {
+		dispatch(document.querySelector("div.input"), "textInput", spamText);
+	}
+	else if(mode == 1) { 
+		arrLength = spamTextArr.length;
+		dispatch(document.querySelector("div.input"), "textInput", spamTextArr[Math.floor(Math.random() * arrLength)]);
+	}
 }
 
 function dispatch(target, eventType, char) {
