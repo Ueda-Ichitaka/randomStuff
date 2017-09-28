@@ -42,7 +42,6 @@ var i = 0;
 function loop() {
 	setTimeout(function () {
 		fillMessage();
-		triggerClick();
 		i++;
 		console.log(i);
 		if(i < count) {
@@ -55,28 +54,20 @@ function loop() {
 
 function fillMessage() {
 	if(mode == 0) {
-		dispatch(document.querySelector("div.input"), "textInput", spamText);
 	}
 	else if(mode == 1) { 
 		arrLength = spamTextArr.length;
-		dispatch(document.querySelector("div.input"), "textInput", spamTextArr[Math.floor(Math.random() * arrLength)]);
 	}
 }
 
-function dispatch(target, eventType, char) {
-    var evt = document.createEvent("TextEvent");    
-    evt.initTextEvent (eventType, true, true, window, char, 0, "en-US");
-    target.focus();
-    target.dispatchEvent(evt);
+function dispatch(input, message) {
+	InputEvent = Event || InputEvent;
+    var evt = new InputEvent('input', {						
+        bubbles: true
+    });
+    input.innerHTML = message;								
+    input.dispatchEvent(evt);								
 }
 
-function triggerClick() {
-var event = new MouseEvent('click', {
-  'view': window,
-  'bubbles': true,
-  'cancelable': true
- });
-document.querySelector(".icon.btn-icon.icon-send").dispatchEvent(event);
-}
 
 loop();
