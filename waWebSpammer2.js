@@ -54,9 +54,11 @@ function loop() {
 
 function fillMessage() {
 	if(mode == 0) {
+		dispatch(document.querySelector("div.input-container > div.pluggable-input > div.pluggable-input-body"), spamText);
 	}
 	else if(mode == 1) { 
 		arrLength = spamTextArr.length;
+		dispatch(document.querySelector("div.input-container > div.pluggable-input > div.pluggable-input-body"), spamTextArr[Math.floor(Math.random() * arrLength)]);
 	}
 }
 
@@ -67,6 +69,7 @@ function dispatch(input, message) {
     });
     input.innerHTML = message;								
     input.dispatchEvent(evt);								
+    document.querySelector(".compose-btn-send").click(); 
 }
 
 
